@@ -19,7 +19,7 @@ const translations = {
     profileText: '20 anos · SaaS · Automação',
 
     aboutEyebrow: 'Sobre mim',
-    aboutTitle: 'Eu gosto de transformar ideia solta em produto navegável, organizado e pronto para evoluir.',
+    aboutTitle: 'Transformo ideias em produto navegável, organizado e pronto para evoluir.',
     aboutText1: 'Moro em Avaré-SP e trabalho com desenvolvimento web full stack. Tenho uma base versátil em front-end, back-end, banco de dados, WordPress, APIs e integrações.',
     aboutText2: 'Meu estilo é direto: entender o objetivo, montar uma estrutura limpa e desenvolver algo que faça sentido no uso real. Não fico preso a uma única área; consigo atuar em diferentes partes do projeto quando necessário.',
 
