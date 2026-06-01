@@ -83,7 +83,7 @@ const translations = {
     profileText: '20 years old · SaaS · Automation',
 
     aboutEyebrow: 'About me',
-    aboutTitle: 'aboutTitle: 'I turn ideas into navigable, organized products ready to evolve.',
+    aboutTitle: 'I turn ideas into navigable, organized products ready to evolve.',
     aboutText1: 'I live in Avaré-SP, Brazil, and work with full stack web development. I have a versatile foundation in front-end, back-end, databases, WordPress, APIs and integrations.',
     aboutText2: 'My style is direct: understand the goal, build a clean structure and develop something that makes sense in real use. I am not locked into one area; I can work across different parts of a project when needed.',
 
