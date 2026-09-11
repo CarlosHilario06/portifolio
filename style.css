@@ -608,6 +608,46 @@ h3 {
   font-weight: 780;
 }
 
+/* O link para o repositório é a prova do que o card afirma: fica no rodapé
+   do cartão, alinhado entre eles mesmo quando os textos têm alturas
+   diferentes. */
+.project-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card .tech-list {
+  margin-bottom: 22px;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  align-self: flex-start;
+  padding: 10px 16px;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.04);
+  color: #efe7ff;
+  font-size: 0.86rem;
+  font-weight: 780;
+  text-decoration: none;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.project-link:hover {
+  border-color: rgba(155,122,217,0.55);
+  background: rgba(155,122,217,0.16);
+  transform: translateY(-1px);
+}
+
+.project-link i {
+  width: 17px;
+  height: 17px;
+}
+
 .service-card {
   padding: 24px;
   min-height: 260px;

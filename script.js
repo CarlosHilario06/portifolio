@@ -35,11 +35,25 @@ const translations = {
     projectsEyebrow: 'Projetos',
     projectsTitle: 'Projetos com foco em solução, não apenas em tela bonita.',
 
-    projectOneTitle: 'Sistema de arbitragem para Ad Manager',
-    projectOneText: 'Projeto full stack voltado para análise de arbitragem no Google Ad Manager, com organização de dados, leitura de indicadores e apoio para decisões mais rápidas.',
+    viewCode: 'Ver código',
 
-    projectTwoTitle: 'Site institucional responsivo',
-    projectTwoText: 'Site com estrutura clara, visual profissional, boa leitura no mobile e seções pensadas para apresentar serviços, diferenciais e canais de contato.',
+    projectOneTitle: 'Springou — split de tráfego com otimização por receita',
+    projectOneText: 'Divide o tráfego entre vários links e reajusta sozinho a fatia de cada um pelo eCPM que o Google Ad Manager reporta. Painel, API e redirect no mesmo serviço, rodando em produção com Docker e HTTPS automático.',
+
+    projectTwoTitle: 'Noob Translate — plugin de tradução para WordPress',
+    projectTwoText: 'Plugin que traduz páginas do site para outros idiomas, com painel próprio no admin, escolha de idiomas em destaque e teste de conexão com a API por AJAX.',
+
+    projectThreeTitle: 'Painel de Resultados',
+    projectThreeText: 'Dashboard que lê CSVs exportados do Google Sheets e guarda fotos de gasto, retorno, lucro e margem por horário, com ranking de campanhas por país. Sem build: abre direto no navegador.',
+
+    projectFourTitle: 'Guia de Fornecedores — Avaré/SP',
+    projectFourText: 'Diretório de fornecedores de festas com busca, filtro por categoria, favoritos, contato por WhatsApp e um painel administrativo para cadastrar novos fornecedores.',
+
+    projectFiveTitle: 'TaskFly — gerenciador de tarefas',
+    projectFiveText: 'Aplicativo web de tarefas com telas de login, cadastro e dashboard, pensado para produtividade pessoal e inspirado em ferramentas como o Todoist.',
+
+    projectSixTitle: 'New Style Barbearia',
+    projectSixText: 'Landing page de uma página com CTA duplo para agendamento e WhatsApp, prova social, serviços e localização. HTML, CSS e JavaScript puros, sem framework e sem build.',
 
     servicesEyebrow: 'Serviços',
     servicesTitle: 'Atuo onde o projeto precisar sair do papel e ganhar forma.',
@@ -99,11 +113,25 @@ const translations = {
     projectsEyebrow: 'Projects',
     projectsTitle: 'Projects focused on solutions, not just good-looking screens.',
 
-    projectOneTitle: 'Ad Manager arbitrage system',
-    projectOneText: 'A full stack project focused on Google Ad Manager arbitrage analysis, with data organization, indicator reading and support for faster decisions.',
+    viewCode: 'View code',
 
-    projectTwoTitle: 'Responsive institutional website',
-    projectTwoText: 'A website with clear structure, professional visuals, strong mobile readability and sections designed to present services, strengths and contact channels.',
+    projectOneTitle: 'Springou — traffic splitting with revenue optimization',
+    projectOneText: 'Splits traffic across several links and reshapes each share on its own from the eCPM reported by Google Ad Manager. Panel, API and redirect in a single service, running in production with Docker and automatic HTTPS.',
+
+    projectTwoTitle: 'Noob Translate — WordPress translation plugin',
+    projectTwoText: 'A plugin that translates site pages into other languages, with its own admin panel, featured language selection and an AJAX connection test against the API.',
+
+    projectThreeTitle: 'Results dashboard',
+    projectThreeText: 'A dashboard that reads CSVs exported from Google Sheets and stores hourly snapshots of spend, return, profit and margin, with a per-country campaign ranking. No build step: it opens straight in the browser.',
+
+    projectFourTitle: 'Party suppliers directory — Avaré/SP',
+    projectFourText: 'A directory of party suppliers with search, category filters, favorites, WhatsApp contact and an admin panel for registering new suppliers.',
+
+    projectFiveTitle: 'TaskFly — task manager',
+    projectFiveText: 'A web task app with login, sign-up and dashboard screens, built for personal productivity and inspired by tools like Todoist.',
+
+    projectSixTitle: 'New Style Barbearia',
+    projectSixText: 'A one-page landing with a dual CTA for booking and WhatsApp, social proof, services and location. Plain HTML, CSS and JavaScript — no framework, no build.',
 
     servicesEyebrow: 'Services',
     servicesTitle: 'I work where the project needs to leave the idea stage and take shape.',
