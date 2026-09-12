@@ -8,23 +8,48 @@
 <meta name="description" content="Portfólio de Carlos Hilário, Desenvolvedor Full Stack focado em SaaS, automação com JavaScript e soluções web.">
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
-<link rel="stylesheet" href="assets/fonts/editorial.css">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="editorial.css">
 <script src="app.js" defer></script>
 </head>
 <body>
 <video id="video" muted playsinline preload="auto" poster="assets/clean-first-frame.jpg" aria-label="Vídeo controlado pela rolagem"><source src="assets/carlos-clean.mp4" type="video/mp4"></video>
+<div id="blackout" class="blackout" aria-hidden="true"></div>
+
 <section id="intro" class="caption intro" aria-labelledby="intro-name">
-  <p class="intro-greeting">Olá</p>
-  <h1 id="intro-name"><span>Eu sou</span> <em>Carlos</em></h1>
-  <p class="intro-role"><span>Carlos Hilário</span><span class="role-divider"> · </span><span>Desenvolvedor Full Stack</span></p>
+  <p class="eyebrow">Olá</p>
+  <h1 id="intro-name"><span class="lede">Eu sou</span><em class="name">Carlos Hilário</em></h1>
+  <p class="role">Desenvolvedor Full Stack</p>
 </section>
+
 <section id="about" class="caption about" aria-label="Sobre Carlos Hilário" aria-hidden="true">
-  <p><strong class="about-lead">Transformo ideias em experiências digitais.</strong> Desenvolvo SaaS, automações com JavaScript e soluções web com clareza, propósito e atenção a cada detalhe.</p>
+  <p class="statement">Transformo ideias em <em>experiências digitais</em>.</p>
+  <p class="tags">SaaS · Automações · Web</p>
 </section>
+
 <section id="work-title" class="caption work-title" aria-labelledby="work-heading" aria-hidden="true">
-  <h2 id="work-heading"><span>Alguns dos meus</span> <em>trabalhos</em></h2>
+  <h2 id="work-heading"><span class="eyebrow">Alguns dos meus</span><em>trabalhos</em></h2>
+</section>
+
+<section id="contact" class="caption contact" aria-labelledby="contact-heading" aria-hidden="true">
+  <div class="contact-inner">
+    <p class="eyebrow">Vamos conversar</p>
+    <h2 id="contact-heading" class="contact-title">Tem uma ideia? <em>Bora tirar do papel.</em></h2>
+    <div class="actions">
+      <!-- Ícones do Lucide (ISC), embutidos para o site não depender de CDN.
+           message-circle vem da v1.45.0; github da v0.544.0, última versão
+           antes de o Lucide remover os ícones de marca. -->
+      <a class="btn btn-primary" href="https://wa.me/5514996005808" target="_blank" rel="noopener noreferrer">
+        <span class="btn-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg></span>
+        <span class="btn-label">WhatsApp</span>
+        <span class="btn-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span>
+      </a>
+      <a class="btn" href="https://github.com/CarlosHilario06" target="_blank" rel="noopener noreferrer">
+        <span class="btn-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></span>
+        <span class="btn-label">GitHub</span>
+        <span class="btn-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span>
+      </a>
+    </div>
+  </div>
 </section>
 </body>
 </html>

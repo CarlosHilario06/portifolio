@@ -1,23 +1,165 @@
+/* Carlos Hilário — portfólio em vídeo controlado por scroll.
+   Direção: editorial. Manrope reta para os rótulos e textos de apoio,
+   Instrument Serif itálico como display. Roxo só como acento, nunca decoração. */
+
+:root{
+  --ink:#f6f4f9;
+  --ink-dim:#c5bed2;
+  --accent:#b98ce4;
+  --hair:rgba(246,244,249,.22);
+  --sans:'Manrope',system-ui,-apple-system,Arial,sans-serif;
+  --serif:'Instrument Serif',Georgia,'Times New Roman',serif;
+  --shadow-text:0 2px 20px rgba(0,0,0,.72),0 1px 3px rgba(0,0,0,.6);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
 *{box-sizing:border-box}
 html{margin:0;background:#000;scrollbar-width:none;overscroll-behavior:none;overflow-x:clip}
 html::-webkit-scrollbar{display:none}
-body{margin:0;height:600vh;height:calc(500svh + 100dvh);background:#000;touch-action:pan-y pinch-zoom}
-/* Keep the scroll distance stable as mobile browser bars expand or collapse. */
-video{position:fixed;top:0;left:0;display:block;width:100%;height:100vh;height:100dvh;object-fit:cover;object-position:center;background:#000;pointer-events:none}
-.caption{position:fixed;z-index:1;color:#f5f7f9;font-family:'Manrope',Arial,sans-serif;-webkit-font-smoothing:antialiased;pointer-events:none;opacity:0;visibility:hidden;will-change:opacity,transform;text-shadow:0 3px 24px #0009,0 1px 3px #0008;overflow-wrap:break-word}
-.intro{top:12vh;top:12dvh;right:max(7vw,env(safe-area-inset-right));max-width:55vw;opacity:1;visibility:visible}
-.intro-greeting{margin:0 0 18px;font-size:.875rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;line-height:1.5;color:#c8d3db}
-.intro h1{margin:0;font-size:clamp(3.25rem,6.5vw,6.5rem);font-weight:600;letter-spacing:-.06em;line-height:1.03}
-.intro h1 span,.intro h1 em{display:block}
-.intro h1 em{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:1.22em;letter-spacing:-.025em;line-height:1.02}
-.intro-role{margin:22px 0 0;font-size:clamp(.875rem,1.2vw,1.125rem);line-height:1.5;font-weight:400;letter-spacing:.035em;color:#d4dce1}
-.about{top:max(7vh,calc(env(safe-area-inset-top) + 20px));top:max(7dvh,calc(env(safe-area-inset-top) + 20px));left:max(6vw,env(safe-area-inset-left));width:min(40vw,600px)}
-.about p{margin:0;font-size:clamp(1.125rem,1.55vw,1.375rem);line-height:1.55;font-weight:400;letter-spacing:-.025em;color:#c8d3da;text-wrap:pretty}
-.about strong{font-weight:600;color:#fff}
-.work-title{left:14vw;right:14vw;bottom:max(12vh,calc(env(safe-area-inset-bottom) + 24px));bottom:max(12dvh,calc(env(safe-area-inset-bottom) + 24px));text-align:center}
+/* A altura total define quanto é preciso rolar para ir do início ao fim do vídeo.
+   svh + dvh mantém a distância estável quando as barras do navegador móvel somem. */
+body{margin:0;height:600vh;height:calc(500svh + 100dvh);background:#000;touch-action:pan-y pinch-zoom;
+  font-family:var(--sans);-webkit-font-smoothing:antialiased}
+
+video{position:fixed;top:0;left:0;display:block;width:100%;height:100vh;height:100dvh;
+  object-fit:cover;object-position:center;background:#000;pointer-events:none}
+
+/* ---------- base das legendas ---------- */
+.caption{position:fixed;z-index:1;color:var(--ink);pointer-events:none;opacity:0;visibility:hidden;
+  will-change:opacity,transform;text-shadow:var(--shadow-text);overflow-wrap:break-word}
+
+.eyebrow{margin:0;font-family:var(--sans);font-size:clamp(.6875rem,.8vw,.8125rem);font-weight:600;
+  line-height:1;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)}
+
+/* ---------- intro ---------- */
+.intro{top:max(11dvh,calc(env(safe-area-inset-top) + 24px));
+  right:max(7vw,env(safe-area-inset-right));width:min(46vw,720px);text-align:left;
+  opacity:1;visibility:visible}
+.intro .eyebrow{margin-bottom:clamp(14px,1.8vh,22px)}
+.intro h1{margin:0;font-weight:400;line-height:1}
+.intro .lede{display:block;font-family:var(--sans);font-size:clamp(1.0625rem,1.8vw,1.625rem);
+  font-weight:500;letter-spacing:.015em;line-height:1.2;color:var(--ink-dim);
+  margin-bottom:clamp(4px,.7vh,10px)}
+.intro .name{display:block;font-family:var(--serif);font-style:italic;
+  font-size:clamp(3rem,7.2vw,7rem);line-height:.94;letter-spacing:-.025em;color:var(--ink)}
+/* A régua puxa a linha do cargo para a horizontal e tira o ar de coluna empilhada. */
+.intro .role{display:flex;align-items:center;gap:clamp(10px,1.1vw,16px);
+  margin:clamp(20px,2.6vh,32px) 0 0;font-family:var(--sans);
+  font-size:clamp(.75rem,.95vw,.9375rem);font-weight:500;letter-spacing:.2em;
+  text-transform:uppercase;line-height:1.4;color:var(--ink-dim)}
+.intro .role::before{content:'';flex:0 0 clamp(28px,3.4vw,56px);height:1px;background:var(--hair)}
+
+/* ---------- sobre ---------- */
+/* Fica à direita: nesse trecho o Carlos ocupa a esquerda do quadro e a metade
+   direita do topo é a área mais escura e vazia do vídeo. */
+.about{left:auto;right:max(7vw,env(safe-area-inset-right));
+  top:max(12dvh,calc(env(safe-area-inset-top) + 24px));width:min(42vw,640px);text-align:left}
+.about .statement{margin:0;font-family:var(--serif);font-style:italic;
+  font-size:clamp(1.75rem,3.6vw,3.5rem);line-height:1.12;letter-spacing:-.02em;
+  color:var(--ink);text-wrap:balance}
+.about .statement em{font-style:italic;color:var(--accent)}
+.about .tags{margin:clamp(18px,2.2vh,26px) 0 0;font-family:var(--sans);
+  font-size:clamp(.6875rem,.85vw,.875rem);font-weight:600;letter-spacing:.24em;
+  text-transform:uppercase;line-height:1.5;color:var(--ink-dim)}
+
+/* ---------- abertura dos trabalhos ---------- */
+/* Mesma coluna do intro e do sobre: a metade direita do topo é a única parte do
+   quadro que permanece preta do começo ao fim do vídeo. Centralizado embaixo, o
+   título caía sobre a borda do notebook flutuante e os rastros de luz. */
+.work-title{left:auto;right:max(7vw,env(safe-area-inset-right));bottom:auto;
+  top:max(12dvh,calc(env(safe-area-inset-top) + 24px));width:min(46vw,720px);text-align:left}
 .work-title h2{margin:0;font-weight:400}
-.work-title h2 span{display:block;font-family:'Manrope',Arial,sans-serif;font-size:clamp(.875rem,1.2vw,1.125rem);font-weight:500;line-height:1.5;text-transform:uppercase;letter-spacing:.12em;color:#d1dbe3;margin-bottom:6px}
-.work-title h2 em{display:block;font-family:'Instrument Serif',Georgia,serif;font-size:clamp(4rem,7vw,7rem);font-weight:400;line-height:1.04;letter-spacing:-.025em}
-@media(max-width:700px){.intro{top:max(8vh,calc(env(safe-area-inset-top) + 20px));top:max(8dvh,calc(env(safe-area-inset-top) + 20px));left:22vw;right:9vw;max-width:none}.intro-greeting{font-size:.875rem;margin-bottom:14px;letter-spacing:.12em}.intro h1{font-size:clamp(2.5rem,10vw,4rem);letter-spacing:-.055em}.intro-role{font-size:.875rem;letter-spacing:.01em;margin-top:16px}.about{left:max(7vw,env(safe-area-inset-left));width:86vw}.about p{font-size:clamp(1.0625rem,3vw,1.25rem);line-height:1.5}.work-title{left:14vw;right:18vw;text-align:left;bottom:max(12dvh,calc(env(safe-area-inset-bottom) + 24px))}.work-title h2 em{font-size:clamp(3.25rem,10vw,5.5rem)}.work-title h2 span{font-size:.875rem;letter-spacing:.08em}}
-@media(max-height:500px) and (orientation:landscape){.intro{top:max(6dvh,env(safe-area-inset-top));left:auto;right:6vw;max-width:55vw}.intro h1{font-size:clamp(2rem,4.5vw,3rem)}.intro-greeting{margin-bottom:8px}.intro-role{margin-top:10px;font-size:.875rem}.about{top:max(5dvh,env(safe-area-inset-top));width:50vw}.about p{font-size:1rem;line-height:1.35}.work-title{bottom:max(8dvh,env(safe-area-inset-bottom))}.work-title h2 em{font-size:clamp(2.5rem,5vw,3.5rem)}}
-@media(prefers-reduced-motion:reduce){.caption{transform:none!important;will-change:opacity}}
+.work-title .eyebrow{display:block;margin-bottom:clamp(10px,1.4vh,18px);color:var(--ink-dim)}
+.work-title em{display:block;font-family:var(--serif);font-style:italic;
+  font-size:clamp(3rem,7vw,6.5rem);line-height:1;letter-spacing:-.025em;color:var(--ink)}
+
+/* ---------- contato (fim do scroll) ---------- */
+/* O último trecho da rolagem dissolve o vídeo neste preto. O contato não
+   disputa espaço com as janelas flutuantes do final: ele nasce no preto. */
+.blackout{position:fixed;inset:0;background:#000;opacity:0;pointer-events:none;z-index:2;
+  will-change:opacity}
+.contact{left:0;right:0;top:50%;bottom:auto;transform:translateY(-50%);z-index:3;
+  text-align:center;padding:0 clamp(1.25rem,6vw,4rem)}
+.contact-inner{will-change:transform}
+.contact .eyebrow{margin-bottom:clamp(12px,1.6vh,18px)}
+.contact-title{margin:0 0 clamp(26px,3.4vh,40px);font-family:var(--serif);font-style:italic;
+  font-weight:400;font-size:clamp(2rem,4.6vw,4rem);line-height:1.06;letter-spacing:-.025em;
+  color:var(--ink);text-wrap:balance}
+/* Quebra fixa: numa linha só, a frase encosta nas bordas do celular. */
+.contact-title em{display:block;font-style:italic;color:var(--accent)}
+.actions{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(12px,1.4vw,18px)}
+
+/* Ícone dentro do próprio invólucro redondo, seta de saída no dela. */
+.btn{pointer-events:auto;display:inline-flex;align-items:center;gap:clamp(9px,.85vw,13px);
+  padding:9px 9px 9px 11px;border-radius:999px;border:1px solid var(--hair);
+  background:rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  color:var(--ink);text-decoration:none;text-shadow:none;font-family:var(--sans);
+  font-size:clamp(.8125rem,.95vw,.9375rem);font-weight:600;letter-spacing:.05em;line-height:1;
+  transition:background .45s var(--ease),border-color .45s var(--ease),transform .45s var(--ease)}
+.btn-icon{display:grid;place-items:center;flex:none;width:2.3em;height:2.3em;border-radius:999px;
+  background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);
+  transition:background .45s var(--ease)}
+.btn-icon svg{width:1.05em;height:1.05em}
+.btn-label{padding-inline:3px}
+.btn-go{display:grid;place-items:center;flex:none;width:1.9em;height:1.9em;border-radius:999px;
+  color:var(--ink-dim);transition:transform .45s var(--ease),color .45s var(--ease)}
+.btn-go svg{width:.95em;height:.95em}
+
+.btn:hover{background:rgba(255,255,255,.13);border-color:rgba(246,244,249,.42);transform:translateY(-2px)}
+.btn:hover .btn-icon{background:rgba(255,255,255,.16)}
+.btn:hover .btn-go{transform:translate(2px,-2px);color:var(--ink)}
+.btn:active{transform:translateY(0)}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.btn-primary{background:var(--accent);border-color:transparent;color:#1b1024}
+.btn-primary .btn-icon{background:rgba(27,16,36,.15);border-color:rgba(27,16,36,.2)}
+.btn-primary .btn-go{color:rgba(27,16,36,.7)}
+.btn-primary:hover{background:#cba6f0;border-color:transparent}
+.btn-primary:hover .btn-icon{background:rgba(27,16,36,.22)}
+.btn-primary:hover .btn-go{color:#1b1024}
+
+/* ---------- telas estreitas ---------- */
+@media(max-width:700px){
+  .intro{top:max(8dvh,calc(env(safe-area-inset-top) + 20px));
+    left:32vw;right:max(6vw,env(safe-area-inset-right));width:auto}
+  .intro .eyebrow{letter-spacing:.24em;margin-bottom:12px}
+  .intro .lede{font-size:clamp(.9375rem,3.6vw,1.25rem)}
+  .intro .name{font-size:clamp(2.25rem,10.5vw,3.75rem);line-height:.98;letter-spacing:-.02em}
+  .intro .role{margin-top:18px;font-size:clamp(.6875rem,2.5vw,.8125rem);letter-spacing:.16em}
+  .intro .role::before{flex-basis:20px}
+
+  .about{left:max(7vw,env(safe-area-inset-left));right:max(6vw,env(safe-area-inset-right));
+    top:max(9dvh,calc(env(safe-area-inset-top) + 20px));width:auto}
+  .about .statement{font-size:clamp(1.5rem,7.4vw,2.5rem);line-height:1.14}
+  .about .tags{margin-top:16px;font-size:clamp(.625rem,2.5vw,.75rem);letter-spacing:.2em}
+
+  .work-title{left:max(7vw,env(safe-area-inset-left));right:max(6vw,env(safe-area-inset-right));
+    top:max(9dvh,calc(env(safe-area-inset-top) + 20px));width:auto}
+  .work-title em{font-size:clamp(2.5rem,12vw,4.25rem)}
+
+  .contact-title{font-size:clamp(1.5rem,7vw,2.25rem)}
+  .actions{flex-direction:column;align-items:stretch;gap:10px}
+  .btn{justify-content:flex-start;width:100%}
+  .btn-go{margin-left:auto}
+}
+
+/* ---------- celular deitado ---------- */
+@media(max-height:500px) and (orientation:landscape){
+  .intro{top:max(6dvh,env(safe-area-inset-top));width:min(52vw,560px)}
+  .intro .name{font-size:clamp(2rem,5.4vw,3.25rem)}
+  .intro .role{margin-top:12px}
+  .about{top:max(6dvh,env(safe-area-inset-top));width:min(52vw,560px)}
+  .about .statement{font-size:clamp(1.25rem,3.4vw,2rem)}
+  .about .tags{margin-top:12px}
+  /* Deitado, o recorte corta o topo do quadro e joga o título em cima das
+     janelas flutuantes. Aqui a faixa preta é a de baixo. */
+  .work-title{top:auto;bottom:max(6dvh,calc(env(safe-area-inset-bottom) + 12px));
+    left:auto;right:max(6vw,env(safe-area-inset-right));width:min(46vw,520px)}
+  .work-title em{font-size:clamp(2rem,5.4vw,3.25rem)}
+  .contact-title{font-size:clamp(1.25rem,3.6vw,2rem);margin-bottom:18px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .caption,.contact-inner{transform:none!important;will-change:opacity}
+  .btn,.btn-icon,.btn-go{transition:none}
+}
