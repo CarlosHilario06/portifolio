@@ -63,11 +63,12 @@ video{position:fixed;top:0;left:0;display:block;width:100%;height:100vh;height:1
   text-transform:uppercase;line-height:1.5;color:var(--ink-dim)}
 
 /* ---------- abertura dos trabalhos ---------- */
-/* Mesma coluna do intro e do sobre: a metade direita do topo é a única parte do
-   quadro que permanece preta do começo ao fim do vídeo. Centralizado embaixo, o
-   título caía sobre a borda do notebook flutuante e os rastros de luz. */
-.work-title{left:auto;right:max(7vw,env(safe-area-inset-right));bottom:auto;
-  top:max(12dvh,calc(env(safe-area-inset-top) + 24px));width:min(46vw,720px);text-align:left}
+/* Neste trecho as janelas flutuantes ocupam a faixa do meio do quadro (metade
+   central da altura). Sobram pretas a faixa de cima e a de baixo; fica na de
+   baixo, que é a mais escura e onde um título de seção cai naturalmente. */
+.work-title{left:auto;right:max(7vw,env(safe-area-inset-right));top:auto;
+  bottom:max(7dvh,calc(env(safe-area-inset-bottom) + 20px));
+  width:min(46vw,720px);text-align:left}
 .work-title h2{margin:0;font-weight:400}
 .work-title .eyebrow{display:block;margin-bottom:clamp(10px,1.4vh,18px);color:var(--ink-dim)}
 .work-title em{display:block;font-family:var(--serif);font-style:italic;
@@ -134,7 +135,7 @@ video{position:fixed;top:0;left:0;display:block;width:100%;height:100vh;height:1
   .about .tags{margin-top:16px;font-size:clamp(.625rem,2.5vw,.75rem);letter-spacing:.2em}
 
   .work-title{left:max(7vw,env(safe-area-inset-left));right:max(6vw,env(safe-area-inset-right));
-    top:max(9dvh,calc(env(safe-area-inset-top) + 20px));width:auto}
+    top:auto;bottom:max(7dvh,calc(env(safe-area-inset-bottom) + 20px));width:auto}
   .work-title em{font-size:clamp(2.5rem,12vw,4.25rem)}
 
   .contact-title{font-size:clamp(1.5rem,7vw,2.25rem)}
@@ -151,9 +152,7 @@ video{position:fixed;top:0;left:0;display:block;width:100%;height:100vh;height:1
   .about{top:max(6dvh,env(safe-area-inset-top));width:min(52vw,560px)}
   .about .statement{font-size:clamp(1.25rem,3.4vw,2rem)}
   .about .tags{margin-top:12px}
-  /* Deitado, o recorte corta o topo do quadro e joga o título em cima das
-     janelas flutuantes. Aqui a faixa preta é a de baixo. */
-  .work-title{top:auto;bottom:max(6dvh,calc(env(safe-area-inset-bottom) + 12px));
+  .work-title{bottom:max(6dvh,calc(env(safe-area-inset-bottom) + 12px));
     left:auto;right:max(6vw,env(safe-area-inset-right));width:min(46vw,520px)}
   .work-title em{font-size:clamp(2rem,5.4vw,3.25rem)}
   .contact-title{font-size:clamp(1.25rem,3.6vw,2rem);margin-bottom:18px}
