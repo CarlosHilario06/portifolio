@@ -8,11 +8,14 @@
 <meta name="description" content="Portfólio de Carlos Hilário, Desenvolvedor Full Stack focado em SaaS, automação com JavaScript e soluções web.">
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
-<link rel="stylesheet" href="styles.css">
-<script src="app.js" defer></script>
+<!-- O ?v= muda a cada versão publicada. Sem ele, o cache do GitHub Pages pode
+     entregar HTML novo com app.js antigo e a página não inicia. -->
+<link rel="stylesheet" href="styles.css?v=3">
+<link rel="preload" as="fetch" href="assets/frames/manifest.json?v=3" crossorigin>
+<script src="app.js?v=3" defer></script>
 </head>
 <body>
-<video id="video" muted playsinline preload="auto" poster="assets/clean-first-frame.jpg" aria-label="Vídeo controlado pela rolagem"><source src="assets/carlos-clean.mp4" type="video/mp4"></video>
+<canvas id="scene" class="scene" role="img" aria-label="Vídeo de apresentação de Carlos Hilário, controlado pela rolagem"></canvas>
 <div id="blackout" class="blackout" aria-hidden="true"></div>
 
 <section id="intro" class="caption intro" aria-labelledby="intro-name">
